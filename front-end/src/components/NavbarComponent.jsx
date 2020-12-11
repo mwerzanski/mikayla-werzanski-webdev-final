@@ -11,10 +11,9 @@ export default class NavbarComponent extends React.Component {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
-                        <li className="nav-item active">
-                            <Link className="nav-link" to="/menu">Weekly Menu<span className="sr-only">(current)</span></Link>
-                        </li>
                         <li className="nav-item">
+                            <Link className="nav-link" to="/">Home<span className="sr-only">(current)</span></Link>
+                            <Link className="nav-link" to="/menu">Weekly Menu<span className="sr-only">(current)</span></Link>
                             <Link className="nav-link" to="/Help">Help</Link>
                         </li>
                     </ul>
