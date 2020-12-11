@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import HelpComponent from './components/HelpComponent';
 import HomeComponent from './components/HomeComponent'
-import MenuComponent from './components/MenuComponent'
+import MenuComponent from './components/menus/MenuComponent'
 import CreateUserComponent from './components/users/CreateUserComponent'
 import LoginComponent from './components/users/LoginComponent'
 import ProfileComponent from './components/users/ProfileComponent'

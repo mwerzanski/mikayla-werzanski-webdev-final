@@ -72,9 +72,7 @@ export default class ProfileComponent extends React.Component {
                     <input id="firstName" value={this.state.firstName} onChange={(e) => this.onChange('firstName', e)}></input>
                     </div>
                 }
-
             </div>
-            
         )
     }
 }
