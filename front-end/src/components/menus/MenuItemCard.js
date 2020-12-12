@@ -1,6 +1,6 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
-import PropTypes from 'prop-types';
+//import {Link} from 'react-router-dom'
+//import PropTypes from 'prop-types';
 
 export default class MenuItemCard extends React.Component {
     constructor(props) {
@@ -26,11 +26,11 @@ export default class MenuItemCard extends React.Component {
                         <p className="card-text">{this.props.text}</p>
                         {
                             !this.state.selectedMenuItem && 
-                            <a href="#" className="btn btn-success" onClick={() => this.selectItem()}>Select</a>
+                            <button className="btn btn-success" onClick={() => this.selectItem()}>Select</button>
                         }
                         {
                             this.state.selectedMenuItem &&
-                            <a href="#" className="btn btn-success disabled" onClick={() => this.selectItem()}>Select</a>
+                            <button className="btn btn-success disabled" onClick={() => this.selectItem()}>Select</button>
                         }
                     </div>
                 </div>

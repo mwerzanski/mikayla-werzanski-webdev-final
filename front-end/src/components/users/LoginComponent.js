@@ -17,7 +17,7 @@ export default class LoginComponent extends React.Component {
         })
     }
 
-    createUser() {
+    login() {
         
     }
 
@@ -36,7 +36,7 @@ export default class LoginComponent extends React.Component {
                     <input type="password" id="password" value={this.state.password} onChange={(e) => this.onChange('password', e)}></input>
                 </div>
 
-                <Link to='/' onClick={() => this.createUser()}>Login</Link>
+                <Link to='/' onClick={() => this.login()}>Login</Link>
             </div>
             
         )

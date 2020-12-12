@@ -2,6 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default class NavbarComponent extends React.Component {
+
+    constructor() {
+        super();
+        this.state = {
+            userActive: true, //include pull from store to find out if user is logged in? or from url tag?
+            userName: 'Mikayla' 
+        }
+    }
+
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -20,6 +29,14 @@ export default class NavbarComponent extends React.Component {
                         <li className="nav-item">
                             <Link className="nav-link" to="/Help">Help</Link>
                         </li>
+                    </ul>
+                    <ul className="navbar-nav ml-auto">
+                        {
+                            this.state.userActive &&
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/userProfile">{this.state.userName}</Link>
+                            </li>
+                        }
                     </ul>
                 </div>
             </nav>
