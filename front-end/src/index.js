@@ -31,8 +31,8 @@ ReactDOM.render(
       <Route exact path="/"><HomeComponent/></Route>
       <Route exact path="/login"><LoginComponent/></Route>
       <Route exact path="/createUser"><CreateUserComponent/></Route>
-      <Route exact path="/userProfile"><ProfileComponent/></Route>
-      <Route exact path="/menu"><MenuItemList/></Route>
+      <Route exact path="/:userID/userProfile"><ProfileComponent/></Route>
+      <Route exact path="/:userID/menu"><MenuItemList/></Route>
       <Route path="/Help" component={HelpComponent}/>
     </Switch>
   </Router>,

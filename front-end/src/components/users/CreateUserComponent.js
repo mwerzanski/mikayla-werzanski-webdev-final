@@ -11,6 +11,8 @@ export default class CreateUser extends React.Component {
             duplicatePassword: '',
             firstName: '',
             redirect: '',
+            admin: false,
+            error: '',
         }
     }
 
@@ -22,14 +24,41 @@ export default class CreateUser extends React.Component {
 
     createUser() {
         if (this.state.password !== this.state.duplicatePassword) {
-            //add error message
+            this.setState({
+                error: 'Please update password and confirm password to be the same.'
+            })
         }
-        Axios.post('localhost:3000/api/user').then(function(response) {
+        Axios.post('http://localhost:3000/api/final', {
+            firstName: this.state.firstName,
+            username: this.state.username,
+            password: this.state.password,
+            admin: this.state.admin
+        }).then(function(response) {
             return response.data
         }).catch(function(error) {
-            //handle error
+            this.setState({
+                error: error
+            })
         })
+        if (this.state.error==='') {
+            this.setState({
+                redirect: "/login"
+            })
+        }
+        
     }
+
+    checkbox() {
+        if(this.state.admin){
+          this.setState({
+            admin: false
+          })
+        } else {
+          this.setState({
+            admin: true
+          })
+        }
+      }
 
     render() {
         if (this.state.redirect) {
@@ -59,7 +88,17 @@ export default class CreateUser extends React.Component {
                     <input type="password" id="duplicatePassword" value={this.state.duplicatePassword} onChange={(e) => this.onChange('duplicatePassword', e)}></input>
                 </div>
 
-                <Link to='/' onClick={() => this.createUser()}>Create Account</Link>
+                <div>
+                    <input type="checkbox" className="form-check-input ml-2" onClick={() => this.checkbox()}/>
+                    <label for="adminAccess" className="ml-4">Admin Access</label>
+                </div>
+
+                {
+                    this.state.error !== '' &&
+                    <div className="text-danger">{this.state.error}</div>
+                }
+
+                <Link to='/createUser' className="btn btn-success" onClick={() => this.createUser()}>Create Account</Link>
             </div>
             
         )
