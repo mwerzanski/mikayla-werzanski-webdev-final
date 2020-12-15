@@ -1,6 +1,9 @@
 import React from 'react';
 import {Link, Redirect} from 'react-router-dom'
 import Axios from 'axios'
+import {store} from '../../store'
+import {readUser} from '../../actions/userAction'
+import NavbarComponent from '../NavbarComponent';
 
 export default class LoginComponent extends React.Component {
     
@@ -21,8 +24,10 @@ export default class LoginComponent extends React.Component {
     }
 
     login() {
-        Axios.get(`http://localhost:3000/api/final/graham/123`)
+        Axios.get(`http://localhost:3000/api/final/users/${this.state.username}/${this.state.password}`)
         .then(function(response) {
+            store.dispatch(readUser('READ_USER', response.data))
+            console.log('login username', store.getState().UserReducer.username)
             return response.data
         }).catch(function(error) {
             this.setState({
@@ -42,6 +47,7 @@ export default class LoginComponent extends React.Component {
         }
         return (
             <div>
+                <NavbarComponent/>
                 <h1>Login</h1>
 
                 <div>

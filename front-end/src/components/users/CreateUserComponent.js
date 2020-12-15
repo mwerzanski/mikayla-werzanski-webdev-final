@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import Axios from 'axios'
+import NavbarComponent from '../NavbarComponent';
 
 export default class CreateUser extends React.Component {
     constructor(props) {
@@ -28,7 +29,7 @@ export default class CreateUser extends React.Component {
                 error: 'Please update password and confirm password to be the same.'
             })
         }
-        Axios.post('http://localhost:3000/api/final', {
+        Axios.post('http://localhost:3000/api/final/users', {
             firstName: this.state.firstName,
             username: this.state.username,
             password: this.state.password,
@@ -66,6 +67,7 @@ export default class CreateUser extends React.Component {
         }
         return (
             <div>
+                <NavbarComponent/>
                 <h1>Create New User</h1>
 
                 <div>

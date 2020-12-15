@@ -1,10 +1,10 @@
 import React from 'react'
 //import {Link} from 'react-router-dom'
-import MenuItemCard from './MenuItemCard'
 import UserListCard from './UserListCard'
 //import PropTypes from 'prop-types'
+import NavbarComponent from '../NavbarComponent';
 
-export default class MenuComponent extends React.Component {
+export default class AdminUserComponent extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -16,14 +16,15 @@ export default class MenuComponent extends React.Component {
     render() {
         return (
             <div>
+                <NavbarComponent/>
                 <h3>Perfect Pear Chef Users:</h3>
                 {
                     this.state.users.length > 0 && 
                     <div>
                         {
-                            this.state.menuItems.map((menuItem, index) =>
+                            this.state.users.map((user, index) =>
                             <div className='card col-12 mb-2' key={index}>
-                                <UserListCard username={users.username} name={users.name}/>
+                                <UserListCard username={user.username} name={user.name}/>
                             </div>)
                         }
                     </div>

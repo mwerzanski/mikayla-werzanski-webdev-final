@@ -1,13 +1,15 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import { store } from '../../store';
+import NavbarComponent from '../NavbarComponent';
 
 export default class ProfileComponent extends React.Component {
     
     constructor(props) {
         super(props)
         this.state = {
-            username: this.props.username, //update to pull from store
-            firstname: this.props.firstName, //update to pull from store
+            username: store.getState().UserReducer.username, //update to pull from store
+            firstname: store.getState().UserReducer.firstName, //update to pull from store
             resetPassword: false,
             updateUsername: false,
             updateName: false,
@@ -57,7 +59,8 @@ export default class ProfileComponent extends React.Component {
     render() {
         return (
             <div className="ml-4 mr-4">
-                <h3>{this.state.firstname}'s Profile:</h3>
+                <NavbarComponent/>
+                <h3>{store.getState().UserReducer.firstName}'s Profile:</h3>
                 <h5>Username: {this.state.username }</h5>
                 <h6>Update your profile settings</h6>
                 <br/>

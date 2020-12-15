@@ -1,8 +1,12 @@
-export function createAssignment(type, username, admin, id) {
+
+
+export function readUser(type, responseData) {
+
     return {
         type: type,
-        username: username,
-        admin: admin,
-        userId: id
+        username: responseData.username,
+        firstName: responseData.firstName,
+        admin: responseData.admin,
+        _id: responseData._id
     }
 };
