@@ -1,7 +1,8 @@
 import React from 'react'
-//import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import MenuItemCard from './MenuItemCard'
 //import PropTypes from 'prop-types'
+import NavbarComponent from '../NavbarComponent';
 
 export default class MenuComponent extends React.Component {
     constructor(props) {
@@ -14,6 +15,7 @@ export default class MenuComponent extends React.Component {
     render() {
         return (
             <div>
+                <NavbarComponent/>
                 <h3>Available Menu Options:</h3>
                 {
                     this.state.menuItems.length > 0 && 
@@ -26,6 +28,7 @@ export default class MenuComponent extends React.Component {
                         }
                     </div>
                 }
+                <Link className="btn btn-outline-primary" to="/menu">Submit Menu Selections</Link>
             </div>
         )
     }
