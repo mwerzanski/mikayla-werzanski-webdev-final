@@ -24,7 +24,7 @@ export default class LoginComponent extends React.Component {
 
     login() {
         Axios.get(
-            `http://localhost:3000/api/final/users/${this.state.username}/${this.state.password}`
+            `https://mwerzanski-webdev-final-backnd.herokuapp.com/api/final/users/${this.state.username}/${this.state.password}`
         )
             .then(function (response) {
                 console.log('login', response.data);

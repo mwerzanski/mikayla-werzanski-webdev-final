@@ -30,7 +30,7 @@ export default class CreateUser extends React.Component {
                     'Please update password and confirm password to be the same.',
             });
         }
-        Axios.post('http://localhost:3000/api/final/users', {
+        Axios.post('https://mwerzanski-webdev-final-backnd.herokuapp.com/api/final/users', {
             firstName: this.state.firstName,
             username: this.state.username,
             password: this.state.password,
