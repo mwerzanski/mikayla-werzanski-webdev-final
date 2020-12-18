@@ -19,7 +19,7 @@ export default class MenuComponent extends React.Component {
 
     componentDidMount() {
         Axios.get(
-            `http://localhost:3000/api/final/users/${this.props.match.params.userID}`
+            `https://mwerzanski-webdev-final-backnd.herokuapp.com/api/final/users/${this.props.match.params.userID}`
         )
             .then(response => {
                 store.dispatch(readUser('READ_USER', response.data));
@@ -32,7 +32,7 @@ export default class MenuComponent extends React.Component {
                     error: error,
                 });
             });
-        Axios.get(`http://localhost:3000/api/final/menuItems/`)
+        Axios.get(`https://mwerzanski-webdev-final-backnd.herokuapp.com/api/final/menuItems/`)
             .then(response => {
                 store.dispatch(setMenuItems('SET_MENU_ITEMS', response.data));
                 this.setState({
@@ -48,7 +48,7 @@ export default class MenuComponent extends React.Component {
 
     submit() {
         console.log('menu reducer', store.getState().MenuReducer.titles);
-        Axios.post('http://localhost:3000/api/final/menus/', {
+        Axios.post('https://mwerzanski-webdev-final-backnd.herokuapp.com/api/final/menus/', {
             username: store.getState().UserReducer.username,
             menuItem: store.getState().MenuReducer.titles,
         })
@@ -57,7 +57,7 @@ export default class MenuComponent extends React.Component {
             })
             .catch(error => {
                 Axios.put(
-                    `http://localhost:3000/api/final/menus/${
+                    `https://mwerzanski-webdev-final-backnd.herokuapp.com/api/final/menus/${
                         store.getState().UserReducer.username
                     }`,
                     {

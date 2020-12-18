@@ -19,7 +19,7 @@ export default class UpdateMenuItem extends React.Component {
 
     componentDidMount() {
         Axios.get(
-            `http://localhost:3000/api/final/users/${this.props.match.params.userID}`
+            `https://mwerzanski-webdev-final-backnd.herokuapp.com/api/final/users/${this.props.match.params.userID}`
         )
             .then(response => {
                 store.dispatch(readUser('READ_USER', response.data));
@@ -46,7 +46,7 @@ export default class UpdateMenuItem extends React.Component {
 
     updateItem() {
         Axios.put(
-            `http://localhost:3000/api/final/menuItems/${
+            `https://mwerzanski-webdev-final-backnd.herokuapp.com/api/final/menuItems/${
                 store.getState().MenuReducer.title
             }`,
             {

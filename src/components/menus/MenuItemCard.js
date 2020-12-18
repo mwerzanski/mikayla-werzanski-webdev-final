@@ -27,7 +27,7 @@ export default class MenuItemCard extends React.Component {
     }
 
     deleteItem() {
-        Axios.delete(`http://localhost:3000/api/final/menuItems/`, {
+        Axios.delete(`https://mwerzanski-webdev-final-backnd.herokuapp.com/api/final/menuItems/`, {
             data: {
                 title: this.props.title,
                 text: this.props.text,
@@ -47,7 +47,6 @@ export default class MenuItemCard extends React.Component {
     }
 
     updateItem() {
-        console.log('update', this.props.title);
         store.dispatch(
             updateMenuItem(
                 'UPDATE_MENU_ITEM',

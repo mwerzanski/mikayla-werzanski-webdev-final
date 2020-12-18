@@ -19,7 +19,7 @@ export default class AdminMenuComponent extends React.Component {
 
     componentDidMount() {
         Axios.get(
-            `http://localhost:3000/api/final/users/${this.props.match.params.userID}`
+            `https://mwerzanski-webdev-final-backnd.herokuapp.com/api/final/users/${this.props.match.params.userID}`
         )
             .then(response => {
                 store.dispatch(readUser('READ_USER', response.data));
@@ -32,7 +32,7 @@ export default class AdminMenuComponent extends React.Component {
                     error: error,
                 });
             });
-        Axios.get(`http://localhost:3000/api/final/menus/thomas`)
+        Axios.get(`https://mwerzanski-webdev-final-backnd.herokuapp.com/api/final/menus/${this.props.match.params.username}`)
             .then(response => {
                 this.setState({
                     username: response.data.username,
