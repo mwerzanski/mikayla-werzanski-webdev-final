@@ -1,4 +1,3 @@
-
 const initialState = {
     username: '',
     firstName: '',
@@ -6,8 +5,7 @@ const initialState = {
     admin: false,
     userActive: false,
     userList: [],
-}
-
+};
 
 const UserReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -18,13 +16,13 @@ const UserReducer = (state = initialState, action) => {
                 firstName: action.firstName,
                 _id: action._id,
                 admin: action.admin,
-                userActive: true
-            }  
+                userActive: true,
+            };
         case 'USER_LIST':
             return {
                 ...state,
-                userList: action.userData
-            }  
+                userList: action.userData,
+            };
         case 'CLEAR_USER_DATA':
             return {
                 username: '',
@@ -33,7 +31,7 @@ const UserReducer = (state = initialState, action) => {
                 admin: false,
                 userActive: false,
                 userList: [],
-            } 
+            };
         default:
             return state;
     }

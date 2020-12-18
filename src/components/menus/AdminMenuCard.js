@@ -1,8 +1,9 @@
-import React from 'react'
+/* eslint-disable react/prop-types */
+import React from 'react';
 
 export default class AdminMenuCard extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
     }
 
     render() {
@@ -14,6 +15,6 @@ export default class AdminMenuCard extends React.Component {
                     </div>
                 </div>
             </div>
-        )
+        );
     }
 }
